@@ -11,8 +11,8 @@ export default function App(){
 	return(
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName='ListaAtiv'>
-				<Stack.Screen name='ListaAtiv' options={{title: 'Infinity Gyn'}} component={AtividadeLista}/>
-				<Stack.Screen name='NovoAtiv' options={{title: 'Nova Atividade'}} component={AtividadeForm}/>
+				<Stack.Screen name='ListaAtiv' options={{title: 'Infinity Gyn', headerStyle:{backgroundColor: 'orange'}}} component={AtividadeLista}/>
+				<Stack.Screen name='NovoAtiv' options={{title: 'Nova Atividade', headerStyle:{backgroundColor: 'orange'}}} component={AtividadeForm}/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
