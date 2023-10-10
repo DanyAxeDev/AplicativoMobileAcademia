@@ -25,7 +25,7 @@ export default function AtividadeForm({navigation}){
 				onChangeText={setCodigo}
 			/>
 			<TextInput 
-				style={styles.input} 
+				style={styles.input}
 				placeholder='Horário'
 				value={horario}
 				onChangeText={setHorario}

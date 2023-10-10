@@ -15,7 +15,7 @@ export default function AtividadeLista({navigation}){
 	}, [isFocused]);
 
 	const myKeyExtractor = item => {
-		return item.codigo.toString();
+		return item.codigo;
 	}
 
 	function excluirProduto(codigo){
