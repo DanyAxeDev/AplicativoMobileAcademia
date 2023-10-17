@@ -5,13 +5,14 @@ import AtividadeItem from './AtividadeItem';
 import {styles} from './CommonStyles';
 import {useIsFocused} from '@react-navigation/native'
 
-export default function AtividadeLista({navigation}){
+export default function AtividadeListaSeg({navigation}){
 	const gestor = new GestorDados();
 	const[atividades, setAtividades] = useState([]);
 	const isFocused = useIsFocused();
+	const diaAtual = 'segunda'; // Substitua pelo dia que deseja exibir
 
 	useEffect(() => {
-		gestor.obterTodos().then(objs => setAtividades(objs));
+		gestor.obterTodos(diaAtual).then(objs => setAtividades(objs));
 	}, [isFocused]);
 
 	const myKeyExtractor = item => {

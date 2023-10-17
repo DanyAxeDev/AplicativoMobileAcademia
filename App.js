@@ -1,18 +1,16 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import AtividadeLista from './AtividadeLista';
-import AtividadeForm from './AtividadeForm';
+
+import TabScreen from './screens/TabScreen';
 
 const Stack = createStackNavigator();
 
 export default function App(){
 	return(
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName='ListaAtiv'>
-				<Stack.Screen name='ListaAtiv' options={{title: 'Infinity Gyn', headerStyle:{backgroundColor: 'orange'}}} component={AtividadeLista}/>
-				<Stack.Screen name='NovoAtiv' options={{title: 'Nova Atividade', headerStyle:{backgroundColor: 'orange'}}} component={AtividadeForm}/>
+			<Stack.Navigator>
+				<Stack.Screen name='Poggers Academy' options={{title: 'Poggers Academy', headerStyle:{backgroundColor: 'orange'}}} component={TabScreen}/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

@@ -1,3 +1,4 @@
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Atividade} from './Atividade';
 
@@ -20,7 +21,7 @@ const obterAtividadesJSON = async () => {
 		return await AsyncStorage.multiGet(keys);
 	}catch(e){return [];}
 }
-const obterAtividades = async () => {
+const obterAtividades = async (dia) => {
     try {
       let objetos: Atividade[] = [];
       let objJSON = await obterAtividadesJSON();
@@ -28,12 +29,15 @@ const obterAtividades = async () => {
         objJSON.forEach(element => {
           if (element[1] !== null) {
             let Atividade: Atividade = JSON.parse(element[1]);
-            objetos.push(Atividade);
+            if(Atividade.dia === dia){
+              objetos.push(Atividade);
+            }
           }
         });
       }
       return objetos;
     } catch (e) {
+      console.error(e)
       return [];
     }
 }
@@ -43,10 +47,14 @@ class GestorDados{
 		await removerAtividade(chave.toString());
   }      
 	public async adicionar(Atividade: Atividade){
-		salvarAtividade(Atividade.codigo.toString(), Atividade);
+    try{
+      await salvarAtividade(Atividade.codigo.toString(), Atividade);
+    }catch(error){
+      console.error(error);
+    }
 	}
-	public async obterTodos(): Promise<Array<Atividade>>{
-		let lista: Array<Atividade> = await obterAtividades();
+	public async obterTodos(dia: string): Promise<Array<Atividade>>{
+		let lista: Array<Atividade> = await obterAtividades(dia);
 		return lista;
 	}
 }
