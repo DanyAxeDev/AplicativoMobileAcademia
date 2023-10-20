@@ -5,7 +5,7 @@ import {Atividade} from './dados/Atividade';
 import GestorDados from './dados/GestorDados';
 import {styles} from './CommonStyles';
 
-export default function AtividadeForm({navigation}){
+export default function AtividadeForm({navigation, route}){
 	const gestor = new GestorDados();
 
 	const gerarCodigoAleatorio = () => {
@@ -17,7 +17,7 @@ export default function AtividadeForm({navigation}){
 	const[horario, setHorario] = useState('');
 	const[nome, setNome] = useState('');
 	const[duracao, setDuracao] = useState('');
-	const[dia, setDia] = useState('segunda')
+	const[dia, setDia] = useState(route.params.diaSelecionado || 'segunda')
 	const salvar = () => {
 		const codigo = gerarCodigoAleatorio();
 		ativAux = new Atividade(codigo, horario, nome, duracao, dia);

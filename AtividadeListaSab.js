@@ -12,20 +12,20 @@ export default function AtividadeListaSab({navigation}){
 	const diaAtual = 'sabado'; // Substitua pelo dia que deseja exibir
 
 	useEffect(() => {
-		gestor.obterTodos(diaAtual).then(objs => setAtividades(objs));
+		gestor.obterPorDiaSemana(diaAtual).then(objs => setAtividades(objs));
 	}, [isFocused]);
 
 	const myKeyExtractor = item => {
-		return item.codigo.toString();
+		return item.codigo;
 	}
 
 	function excluirProduto(codigo){
-		gestor.remover(codigo).then(gestor.obterTodos().then(objs => setAtividades(objs)));
+		gestor.remover(codigo).then(gestor.obterPorDiaSemana(diaAtual).then(objs => setAtividades(objs)));
 	}
 
 	return(
 		<View style={styles.container}>
-			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NovoAtiv')}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NovoAtiv', {diaSelecionado: 'sabado'})}>
 				<Text style={styles.buttonTextBig}>Nova Atividade</Text>		
 			</TouchableOpacity>
 			<FlatList 
