@@ -11,6 +11,6 @@
 <p>Com isso, nosso servidor está rodando e num domínio com requisições HTTPS. Agora, basta iniciar o projeto mobile</p>
 
 <h1>Utilizando o mongoDB</h1>
-<p>Para trabalharmos com o banco de dados MongoDB, devemos baixar e instalar a versão gratuita no endereço https://www.mongodb.com/ try/download/community.</p>
+<p>Para trabalharmos com o banco de dados MongoDB, devemos baixar e instalar a versão gratuita no endereço https://www.mongodb.com/try/download/community.</p>
 <p>Ao final da instalação, teremos o banco de dados instalado como um serviço, além de um aplicativo para gerência com o nome MongoDB Compass.</p>
 <p>Com o serviço ativo, vamos abrir o gerenciador e clicar diretamente na opção Connect, abrindo uma conexão com o servidor de forma local. Efetuada a conexão, vamos criar um banco de dados com o nome "Academia", contendo uma coleção denominada "Atividades", mas sem marcar a opção Capped Collection, pois isso impediria a remoção de registros.</p>
