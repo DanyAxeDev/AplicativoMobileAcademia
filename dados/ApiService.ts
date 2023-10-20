@@ -1,9 +1,10 @@
 import axios, {AxiosInstance} from "axios";
 
-const endereco = 'https://51cd-177-135-251-218.ngrok.io'
+const endereco = 'https://deer-moving-sailfish.ngrok-free.app'
 
-const api:AxiosInstance = axios.create({
-    baseURL: endereco
-})
+const api: AxiosInstance = axios.create({
+    baseURL: endereco,
+    timeout: 5000, // Tempo limite de 5 segundos
+});
 
 export default api;

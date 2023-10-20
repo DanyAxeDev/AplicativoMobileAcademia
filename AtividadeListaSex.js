@@ -5,13 +5,14 @@ import AtividadeItem from './AtividadeItem';
 import {styles} from './CommonStyles';
 import {useIsFocused} from '@react-navigation/native'
 
-export default function AtividadeLista({navigation}){
+export default function AtividadeListaSex({navigation}){
 	const gestor = new GestorDados();
 	const[atividades, setAtividades] = useState([]);
 	const isFocused = useIsFocused();
+	const diaAtual = 'sexta'; // Substitua pelo dia que deseja exibir
 
 	useEffect(() => {
-		gestor.obterTodos().then(objs => setAtividades(objs));
+		gestor.obterPorDiaSemana(diaAtual).then(objs => setAtividades(objs));
 	}, [isFocused]);
 
 	const myKeyExtractor = item => {
@@ -19,12 +20,12 @@ export default function AtividadeLista({navigation}){
 	}
 
 	function excluirProduto(codigo){
-		gestor.remover(codigo).then(gestor.obterTodos().then(objs => setAtividades(objs)));
+		gestor.remover(codigo).then(gestor.obterPorDiaSemana(diaAtual).then(objs => setAtividades(objs)));
 	}
 
 	return(
 		<View style={styles.container}>
-			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NovoAtiv')}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NovoAtiv', {diaSelecionado: 'sexta'})}>
 				<Text style={styles.buttonTextBig}>Nova Atividade</Text>		
 			</TouchableOpacity>
 			<FlatList 
