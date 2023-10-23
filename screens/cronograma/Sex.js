@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import AtividadeListaSex from '../AtividadeListaSex';
-import AtividadeForm from '../AtividadeForm';
+import AtividadeListaSex from '../atividade/AtividadeListaSex';
+import AtividadeForm from '../atividade/AtividadeForm';
 
 const SextaStack = createStackNavigator();
 

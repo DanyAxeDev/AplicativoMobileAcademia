@@ -2,8 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import TabScreen from './screens/TabTopScreen';
-import TabBottom from './screens/TabBottomScreen';
+import TabBottom from './screens/navegação/TabBottomScreen';
 
 const Stack = createStackNavigator();
 

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, TouchableOpacity, FlatList} from 'react-native';
-import GestorDados from './dados/GestorDados';
+import GestorDados from '../../dados/GestorDados';
 import AtividadeItem from './AtividadeItem';
-import {styles} from './CommonStyles';
+import {styles} from '../../CommonStyles';
 import {useIsFocused} from '@react-navigation/native'
 
 export default function AtividadeListaSab({navigation}){

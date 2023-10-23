@@ -3,8 +3,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import TabScreen from './TabTopScreen';
-import Financeiro from './financeiro/financeiro';
-import Treinos from './treinos/treinos';
+import Financeiro from '../financeiro/financeiro';
+import Treinos from '../treinos/treinos';
 
 const Bottom = createMaterialBottomTabNavigator();
 

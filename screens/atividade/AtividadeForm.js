@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {Text, View, TextInput, TouchableOpacity} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import {Atividade} from './dados/Atividade';
-import GestorDados from './dados/GestorDados';
-import {styles} from './CommonStyles';
+import {Atividade} from '../../dados/Atividade';
+import GestorDados from '../../dados/GestorDados';
+import {styles} from '../../CommonStyles';
 
 export default function AtividadeForm({navigation, route}){
 	const gestor = new GestorDados();

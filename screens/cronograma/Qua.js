@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import AtividadeListaQua from '../AtividadeListaQua';
-import AtividadeForm from '../AtividadeForm';
+import AtividadeListaQua from '../atividade/AtividadeListaQua';
+import AtividadeForm from '../atividade/AtividadeForm';
 
 const QuartaStack = createStackNavigator();
 
