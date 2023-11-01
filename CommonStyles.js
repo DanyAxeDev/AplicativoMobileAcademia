@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 	},
 	containerItem:{
-		flex: 1,
 		backgroundColor: '#F5DEB3',
 		marginTop: 10,
 		width: '100%',
@@ -92,5 +91,41 @@ export const styles = StyleSheet.create({
 		shadowOpacity: 10,
 		shadowColor: '#ccc',
 		alignItems: 'center',
+	},
+	containerTreino:{
+		flex: 1,
+		backgroundColor: '#fff',
+		width: '100%',
+		padding: 5,
+		alignItems: 'center',
+		justifyContent: 'center'
+	},
+	Texto:{
+		fontSize: 20,
+		fontWeight: 'bold',
+		color: 'orange',
+		textDecorationLine: 'underline'
+	},
+	containerM:{
+		flex: 1,
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		width: '100%',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	containerItemM:{
+		width: 185,
+		height: 100,
+		margin: 5,
+		backgroundColor: '#F5DEB3',
+		padding: 10,
+		borderWidth: 1,
+		borderRadius: 10,
+		borderColor: '#F4A460',
+		elevation: 10,
+		shadowColor: '#52006A',
+		alignItems: 'center',
+		justifyContent: 'center'
 	}
 });

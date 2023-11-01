@@ -10,7 +10,6 @@ class GestorDados{
     }
     public async obterTodos(): Promise<Array<Atividade>>{
         let resposta = await api.get('/');
-        console.log(resposta)
         if(resposta.data === undefined){
             return [];
         }else{

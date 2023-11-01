@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import TabScreen from './TabTopScreen';
 import Financeiro from '../financeiro/financeiro';
-import Treinos from '../treinos/treinos';
+import NavTreino from '../treinos/nav';
 
 const Bottom = createMaterialBottomTabNavigator();
 
@@ -23,7 +23,7 @@ export default function TabBottom(){
 				tabBarIcon: ({color}) => (<MaterialCommunityIcons name='currency-usd' color={color} size={26}/>)
 				}}
             />
-            <Bottom.Screen name='treinos' component={Treinos}
+            <Bottom.Screen name='treinos' component={NavTreino}
                 options={{tabBarLabel: "Treinos",
                 tabBarIcon: ({color}) => (<MaterialCommunityIcons name='dumbbell' color={color} size={26}/>)
                 }}
