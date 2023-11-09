@@ -7,7 +7,6 @@ import {
     TouchableOpacity,
     Modal
 } from 'react-native'
-import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
 import GestorDados from '../../dados/GestorDados'
 
@@ -52,33 +51,25 @@ export default function Signin() {
         usuario.map((user) => {
             if (user.email == email && user.senha == senha) {
                 setLogin(true);
-            } else {
-                return (
-                    <View style={styles.container}>
-                        <ModalComponent modalVisible={modalVisible} toggleModal={toggleModal} />
-                    </View>
-                )
-            }
-            if (login) {
-                navigation.navigate('Poggers Academy');
-                navigation.reset({
-                    index: 0,
-                    routes: [{ name: 'Poggers Academy' }],
-                });
             }
         })
+        if(login) {
+            navigation.navigate('Poggers Academy');
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'Poggers Academy' }],
+            });
+        }
     }
 
     return (
         <View style={styles.container}>
-            <Animatable.View
-                delay={500}
-                animation={'fadeInLeft'}
+            <View
                 style={styles.containerHeader}
             >
                 <Text style={styles.message}>Bem-vindo(a)</Text>
-            </Animatable.View>
-            <Animatable.View animation={'fadeInUp'} style={styles.containerForm}>
+            </View>
+            <View style={styles.containerForm}>
                 <Text style={styles.title}>Email</Text>
                 <TextInput placeholder="Digite um email..." style={styles.input} value={email} onChangeText={setEmail} />
                 <Text style={styles.title}>Senha</Text>
@@ -98,7 +89,7 @@ export default function Signin() {
                         <Text>Cadastre-se</Text>
                     </TouchableOpacity>
                 </View>
-            </Animatable.View>
+            </View>
         </View>
     )
 }

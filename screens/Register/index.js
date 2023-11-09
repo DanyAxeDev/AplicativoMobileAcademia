@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native'
-import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
 import { Usuario } from '../../dados/Usuario';
 import GestorDados from '../../dados/GestorDados';
@@ -31,14 +30,12 @@ export default function Register() {
   const navigation = useNavigation()
   return (
     <View style={styles.container}>
-      <Animatable.View
-        delay={500}
-        animation={'fadeInLeft'}
+      <View
         style={styles.containerHeader}
       >
         <Text style={styles.message}>Cadastre sua conta(a)</Text>
-      </Animatable.View>
-      <Animatable.View animation={'fadeInUp'} style={styles.containerForm}>
+      </View>
+      <View style={styles.containerForm}>
         <Text style={styles.title}>Cadastre um Email</Text>
         <TextInput placeholder="Digite um email..." style={styles.input} value={email} onChangeText={setEmail} />
         <Text style={styles.title}>Cadastre uma Senha</Text>
@@ -55,7 +52,7 @@ export default function Register() {
             <Text>ir para login</Text>
           </TouchableOpacity>
         </View>
-      </Animatable.View>
+      </View>
     </View>
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import splash from '../../assets/splash.png'
-import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
 
 export default function Welcome() {
@@ -10,15 +9,12 @@ export default function Welcome() {
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
-        <Animatable.Image
-          animation={'flipInY'}
+        <Image
           source={splash}
           style={styles.logo}
         />
       </View>
-      <Animatable.View
-        delay={600}
-        animation={'fadeInUp'}
+      <View
         style={styles.containerForm}
       >
         <Text style={styles.title}>
@@ -31,7 +27,7 @@ export default function Welcome() {
         >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
-      </Animatable.View>
+      </View>
     </View>
   )
 }
