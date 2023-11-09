@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -8,8 +8,26 @@ import {
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
+import { Usuario } from '../../dados/Usuario';
+import GestorDados from '../../dados/GestorDados';
 
 export default function Register() {
+  const gestor = new GestorDados();
+
+  const gerarCodigoAleatorio = () => {
+		const timestamp = new Date().getTime();
+		const numeroAleatorio = Math.floor(Math.random() * 1000); // Altere para o intervalo desejado
+		return `${timestamp}-${numeroAleatorio}`;
+	};
+
+	const[email, setEmail] = useState('');
+	const[senha, setSenha] = useState('');
+	const salvar = () => {
+		const codigoUser = gerarCodigoAleatorio();
+		userAux = new Usuario(codigoUser, email, senha);
+		gestor.adicionarUsuario(userAux).then(navigation.navigate('SingIn'));
+	}
+
   const navigation = useNavigation()
   return (
     <View style={styles.container}>
@@ -22,12 +40,10 @@ export default function Register() {
       </Animatable.View>
       <Animatable.View animation={'fadeInUp'} style={styles.containerForm}>
         <Text style={styles.title}>Cadastre um Email</Text>
-        <TextInput placeholder="Digite um email..." style={styles.input} />
+        <TextInput placeholder="Digite um email..." style={styles.input} value={email} onChangeText={setEmail} />
         <Text style={styles.title}>Cadastre uma Senha</Text>
-        <TextInput placeholder="Sua senha" style={styles.input} />
-        <Text style={styles.title}>Confirmação de senha</Text>
-        <TextInput placeholder="Confirmar senha" style={styles.input} />
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SingIn')}>
+        <TextInput placeholder="Sua senha" style={styles.input} value={senha} onChangeText={setSenha} />
+        <TouchableOpacity style={styles.button} onPress={salvar}>
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
         <View style={styles.viewLogin}>

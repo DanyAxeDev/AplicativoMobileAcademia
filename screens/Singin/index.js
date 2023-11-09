@@ -1,23 +1,72 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Modal
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
+import GestorDados from '../../dados/GestorDados'
+
+const ModalComponent = ({ modalVisible, toggleModal }) => (
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={toggleModal}
+    >
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          <Text>Usuário não encontrado</Text>
+          <TouchableOpacity style={styles.botao} onPress={toggleModal}>
+            <Text style={{ fontWeight: 'bold' }}>Fechar</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
 
 export default function Signin() {
+    const gestor = new GestorDados();
+    [usuario, setUsuario] = useState([]);
+    [email, setEmail] = useState('');
+    [senha, setSenha] = useState('');
+    [login, setLogin] = useState(false);
+
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+        setModalVisible(!modalVisible);
+    }
+
+    useEffect(() => {
+        gestor.obterUsuarios().then(objs => setUsuario(objs));
+    });
+
     const navigation = useNavigation();
 
     const handleLogin = () => {
-        navigation.navigate('Poggers Academy');
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Poggers Academy' }],
-        });
+        usuario.map((user) => {
+            if (user.email == email && user.senha == senha) {
+                setLogin(true);
+            } else {
+                return (
+                    <View style={styles.container}>
+                        <ModalComponent modalVisible={modalVisible} toggleModal={toggleModal} />
+                    </View>
+                )
+            }
+            if (login) {
+                navigation.navigate('Poggers Academy');
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'Poggers Academy' }],
+                });
+            }
+        })
     }
 
     return (
@@ -31,9 +80,9 @@ export default function Signin() {
             </Animatable.View>
             <Animatable.View animation={'fadeInUp'} style={styles.containerForm}>
                 <Text style={styles.title}>Email</Text>
-                <TextInput placeholder="Digite um email..." style={styles.input} />
+                <TextInput placeholder="Digite um email..." style={styles.input} value={email} onChangeText={setEmail} />
                 <Text style={styles.title}>Senha</Text>
-                <TextInput placeholder="Sua senha" style={styles.input} />
+                <TextInput placeholder="Sua senha" style={styles.input} value={senha} onChangeText={setSenha} />
                 <TouchableOpacity
                     style={styles.button}
                     onPress={handleLogin}

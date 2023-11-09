@@ -115,7 +115,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	containerItemM:{
-		width: 185,
+		width: 180,
 		height: 100,
 		margin: 5,
 		backgroundColor: '#F5DEB3',
