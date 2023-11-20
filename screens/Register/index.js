@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -14,18 +14,19 @@ export default function Register() {
   const gestor = new GestorDados();
 
   const gerarCodigoAleatorio = () => {
-		const timestamp = new Date().getTime();
-		const numeroAleatorio = Math.floor(Math.random() * 1000); // Altere para o intervalo desejado
-		return `${timestamp}-${numeroAleatorio}`;
-	};
+    const timestamp = new Date().getTime();
+    const numeroAleatorio = Math.floor(Math.random() * 1000); // Altere para o intervalo desejado
+    return `${timestamp}-${numeroAleatorio}`;
+  };
 
-	const[email, setEmail] = useState('');
-	const[senha, setSenha] = useState('');
-	const salvar = () => {
-		const codigoUser = gerarCodigoAleatorio();
-		userAux = new Usuario(codigoUser, email, senha);
-		gestor.adicionarUsuario(userAux).then(navigation.navigate('SingIn'));
-	}
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [tipoUsuario, setTipoUsuario] = useState('normal');
+  const salvar = () => {
+    const codigoUser = gerarCodigoAleatorio();
+    userAux = new Usuario(codigoUser, email, senha, tipoUsuario);
+    gestor.adicionarUsuario(userAux).then(navigation.navigate('SingIn'));
+  }
 
   const navigation = useNavigation()
   return (

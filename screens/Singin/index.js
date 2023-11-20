@@ -48,17 +48,26 @@ export default function Signin() {
     const navigation = useNavigation();
 
     const handleLogin = () => {
-        usuario.map((user) => {
+        usuario.forEach(user => {
             if (user.email == email && user.senha == senha) {
                 setLogin(true);
+                if (user.tipoUsuario === 'admin') {
+                    navigation.navigate('Poggers Academy', {userTipo: 'admin'});
+                    navigation.reset({
+                        index: 0,
+                        routes: [{ name: 'Poggers Academy' }],
+                    });
+                } else {
+                    navigation.navigate('Poggers Academy', {userTipo: 'normal'});
+                    navigation.reset({
+                        index: 0,
+                        routes: [{ name: 'Poggers Academy' }],
+                    });
+                }
             }
         })
-        if(login) {
-            navigation.navigate('Poggers Academy');
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'Poggers Academy' }],
-            });
+        if(!login) {
+            toggleModal();
         }
     }
 
