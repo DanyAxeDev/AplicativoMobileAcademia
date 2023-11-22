@@ -1,6 +1,6 @@
 import axios, {AxiosInstance} from "axios";
 
-const endereco = 'https://3bdb-45-191-205-161.ngrok-free.app'
+const endereco = 'https://deer-moving-sailfish.ngrok-free.app'
 
 const api: AxiosInstance = axios.create({
     baseURL: endereco,

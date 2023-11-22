@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import GestorDados from '../../dados/GestorDados'
+import { useIsFocused } from '@react-navigation/native'
 
 const ModalComponent = ({ modalVisible, toggleModal }) => (
     <Modal
@@ -34,6 +35,7 @@ export default function Signin() {
     [email, setEmail] = useState('');
     [senha, setSenha] = useState('');
     [login, setLogin] = useState(false);
+    const isFocused = useIsFocused();
 
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -43,7 +45,7 @@ export default function Signin() {
 
     useEffect(() => {
         gestor.obterUsuarios().then(objs => setUsuario(objs));
-    });
+    }, [isFocused]);
 
     const navigation = useNavigation();
 
