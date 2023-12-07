@@ -17,8 +17,6 @@ Esse projeto foi um trabalho feito para minha faculdade.
 <p>Com o serviço ativo, vamos abrir o gerenciador e clicar diretamente na opção Connect, abrindo uma conexão com o servidor de forma local. Efetuada a conexão, vamos criar um banco de dados com o nome "Academia", contendo uma coleção denominada "Atividades", mas sem marcar a opção Capped Collection, pois isso impediria a remoção de registros.</p>
 
 # Planos para o futuro
-<li>
-  <ol>Terminar tela de financeiro, adicionando métodos para efetuar pagamentos e visualizar faturas pendentes</ol>
-  <ol>Terminar tela de treinos, adicionando modelos de treinos prontos, recolhidos através de uma API. E uma tela para treinos personalizados, que fornecerá exercicios para o usuário montar seu próprio treino</ol>
-  <ol>Melhorar o sistema de login, utilizando tokens de acesso</ol>
-</li>
+<li>Terminar tela de financeiro, adicionando métodos para efetuar pagamentos e visualizar faturas pendentes</li>
+<li>Terminar tela de treinos, adicionando modelos de treinos prontos, recolhidos através de uma API. E uma tela para treinos personalizados, que fornecerá exercicios para o usuário montar seu próprio treino</li>
+<li>Melhorar o sistema de login, utilizando tokens de acesso</li>
