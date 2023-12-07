@@ -1,13 +1,12 @@
-import {NavigationContainer} from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React from 'react';
 
-import SegundaStackScreen from './Seg';
-import TercaStackScreen from './Ter';
-import QuartaStackScreen from './Qua';
-import QuintaStackScreen from './Qui';
-import SextaStackScreen from './Sex';
-import SabadoStackScreen from './Sab';
+import SegundaStackScreen from '../cronograma/Seg';
+import TercaStackScreen from '../cronograma/Ter';
+import QuartaStackScreen from '../cronograma/Qua';
+import QuintaStackScreen from '../cronograma/Qui';
+import SextaStackScreen from '../cronograma/Sex';
+import SabadoStackScreen from '../cronograma/Sab';
 
 const Tab = createMaterialTopTabNavigator();
 

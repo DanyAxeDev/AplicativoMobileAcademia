@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import AtividadeListaSeg from '../AtividadeListaSeg';
-import AtividadeForm from '../AtividadeForm';
+import AtividadeListaSeg from '../atividade/AtividadeListaSeg';
+import AtividadeForm from '../atividade/AtividadeForm';
 
 const SegundaStack = createStackNavigator();
 

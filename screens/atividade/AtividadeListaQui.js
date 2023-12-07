@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, TouchableOpacity, FlatList} from 'react-native';
-import GestorDados from './dados/GestorDados';
+import GestorDados from '../../dados/GestorDados';
 import AtividadeItem from './AtividadeItem';
-import {styles} from './CommonStyles';
+import {styles} from '../../CommonStyles';
 import {useIsFocused} from '@react-navigation/native'
 
-export default function AtividadeListaTer({navigation}){
+export default function AtividadeListaQui({navigation}){
 	const gestor = new GestorDados();
 	const[atividades, setAtividades] = useState([]);
 	const isFocused = useIsFocused();
-	const diaAtual = 'terca'; // Substitua pelo dia que deseja exibir
+	const diaAtual = 'quinta'; // Substitua pelo dia que deseja exibir
 
 	useEffect(() => {
 		gestor.obterPorDiaSemana(diaAtual).then(objs => setAtividades(objs));
@@ -25,7 +25,7 @@ export default function AtividadeListaTer({navigation}){
 
 	return(
 		<View style={styles.container}>
-			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NovoAtiv', {diaSelecionado: 'terca'})}>
+			<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NovoAtiv', {diaSelecionado: 'quinta'})}>
 				<Text style={styles.buttonTextBig}>Nova Atividade</Text>		
 			</TouchableOpacity>
 			<FlatList 

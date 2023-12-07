@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import AtividadeListaSab from '../AtividadeListaSab';
-import AtividadeForm from '../AtividadeForm';
+import AtividadeListaSab from '../atividade/AtividadeListaSab';
+import AtividadeForm from '../atividade/AtividadeForm';
 
 const SabadoStack = createStackNavigator();
 
