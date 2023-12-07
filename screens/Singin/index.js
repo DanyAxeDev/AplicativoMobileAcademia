@@ -5,43 +5,18 @@ import {
     StyleSheet,
     TextInput,
     TouchableOpacity,
-    Modal
+    Alert
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import GestorDados from '../../dados/GestorDados'
 import { useIsFocused } from '@react-navigation/native'
-
-const ModalComponent = ({ modalVisible, toggleModal }) => (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={toggleModal}
-    >
-      <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
-          <Text>Usuário não encontrado</Text>
-          <TouchableOpacity style={styles.botao} onPress={toggleModal}>
-            <Text style={{ fontWeight: 'bold' }}>Fechar</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Modal>
-  );
 
 export default function Signin() {
     const gestor = new GestorDados();
     [usuario, setUsuario] = useState([]);
     [email, setEmail] = useState('');
     [senha, setSenha] = useState('');
-    [login, setLogin] = useState(false);
     const isFocused = useIsFocused();
-
-    const [modalVisible, setModalVisible] = useState(false);
-
-    const toggleModal = () => {
-        setModalVisible(!modalVisible);
-    }
 
     useEffect(() => {
         gestor.obterUsuarios().then(objs => setUsuario(objs));
@@ -52,7 +27,6 @@ export default function Signin() {
     const handleLogin = () => {
         usuario.forEach(user => {
             if (user.email == email && user.senha == senha) {
-                setLogin(true);
                 if (user.tipoUsuario === 'admin') {
                     navigation.navigate('Poggers Academy', {userTipo: 'admin'});
                     navigation.reset({
@@ -68,9 +42,6 @@ export default function Signin() {
                 }
             }
         })
-        if(!login) {
-            toggleModal();
-        }
     }
 
     return (
